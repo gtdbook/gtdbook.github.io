@@ -1,0 +1,9 @@
+$ jekyll build
+# => 当前文件夹中的内容将会生成到 ./_site 文件夹中。
+
+Using Affiliates template with Jekyll
+git clone https://github.com/wowthemesnet/affiliates-jekyll-theme.git
+cd affiliates-jekyll-theme
+bundle
+edit _config.yml. If your site is in root: baseurl: ''. Also, change your Google Analytics code, Disqus username, Authors, Mailchimp etc.
+jekyll serve --watch
