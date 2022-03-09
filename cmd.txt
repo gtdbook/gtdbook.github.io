@@ -3,7 +3,7 @@ $ jekyll build
 
 Using Affiliates template with Jekyll
 git clone https://github.com/wowthemesnet/affiliates-jekyll-theme.git
-cd affiliates-jekyll-theme
+cd D:\Devops\Github\Html\gtdbook.github.io
 bundle
 edit _config.yml. If your site is in root: baseurl: ''. Also, change your Google Analytics code, Disqus username, Authors, Mailchimp etc.
 jekyll serve --watch
