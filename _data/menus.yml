@@ -5,10 +5,10 @@ topmenu:
   url: ""
 
 - title: Jekyll
-  url: "categories/#jekyll"
+  url: "jekyll"
   
 - title: Tutorial
-  url: "categories/#tutorial"
+  url: "tutorial"
   
 - title: About
   url: "about/"
@@ -17,7 +17,7 @@ topmenu:
   url: "contact/"
 
 - title: Get this theme  
-  url: https://bootstrapstarter.com/template-affiliates-bootstrap-jekyll/
+  url: http://jekyllcn.com/docs/usage/
   class: "ml-2 btn btn-dark text-white px-3"
   external: true
 
