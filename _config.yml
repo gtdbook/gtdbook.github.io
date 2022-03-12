@@ -2,6 +2,8 @@ title: "mmcsky.com"
 email: szwnba@gmail.com
 timezone: UTC
 baseurl: ""
+#cdnurl: ""
+cdnurl: "https://cdn.jsdelivr.net/gh/gtdbook/gtdbook.github.io"
 permalink: "/:title/"
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'
@@ -21,7 +23,7 @@ sass:
   sass_dir: _sass
   style: :compressed
 ganalytics: UA-113961478-1
-
+        
 # Authors
 authors:
   johnson:
