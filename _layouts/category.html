@@ -6,8 +6,6 @@ permalink: "/category.html"
 ---
 <!-- 将分类页的分类赋给变量page_category -->
 {% assign page_category = page.category %}
-{% assign paginate = site.category.paginate | default: site.paginate  %}
-{% assign paginate_path = site.category.paginate_path | default: site.paginate_path  %}
 
  <!-- 循环所有分类 -->
 {% for category in site.categories %}
@@ -17,19 +15,18 @@ permalink: "/category.html"
 		<div class="row">
 		{% assign pages_list = category[1] %}
 		{% for post in pages_list %}
-		 
-		   
-				{% if post.title != null %}
-					{% if group == null or group == post.group %}
-						<div class="col-md-4 mb-5">
-						{% include postbox.html %}
-						</div>
-					{% endif %}
+			{% if post.title != null %}
+				{% if group == null or group == post.group %}
+					<div class="col-md-4 mb-5">
+					{% include postbox.html %}
+					</div>
 				{% endif %}
+			{% endif %}						
 		{% endfor %}
 		{% assign pages_list = nil %}
 		{% assign group = nil %}
 		</div>
+		
 		<!-- Pagination -->
 		Pagination
 		<div class="bottompagination">

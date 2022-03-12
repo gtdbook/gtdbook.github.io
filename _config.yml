@@ -8,8 +8,8 @@ favicon: 'assets/images/favicon.ico'
 author: johnson
 paginate: 6
 disqus: 'demowebsite'
-locale: en_us
-lang: en_us
+locale: zh_cn
+lang: zh_cn
 feed_items: 10
 feed_update_period: daily
 feed_update_frequency: 1
@@ -43,9 +43,9 @@ authors:
 
 # Social
 social:
-  instagram: https://www.instagram.com/bootstrapstarter/
-  facebook: https://www.facebook.com/bootstrapstartercom-346329609045284
-  twitter: https://twitter.com/bstartercom
+  instagram: https://www.instagram.com/szwnba
+  facebook: https://www.facebook.com/szwnba
+  twitter: https://twitter.com/szwnba
 
 # Plugins
 plugins: 

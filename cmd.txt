@@ -10,3 +10,20 @@ edit _config.yml. If your site is in root: baseurl: ''. Also, change your Google
 bundle add webrick
 
 jekyll serve --watch
+
+
+变更历史：
+9.多语言配置
+8.图片CDN加速
+
+7.字体变小： 
+  .mainheading h1.posttitle {     font-size: 1.5em;
+  .article-post  --》 font-size: 1.0em;
+6.增加CNAME指定域名，Clouefare套域名，设置speed加速
+5.文章内容增加图片处理：
+  1）设置图片路径：typora-root-url: ..
+  2）偏好设置图像配置：复制到指路径：../assets/images/${filename}
+4.删除留言，删除作者信息，删除banner，删除footer图片
+3.更新菜单及footer菜单内容
+2.针对中文增加摘要处理
+1.增加分类

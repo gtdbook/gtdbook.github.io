@@ -9,6 +9,9 @@ topmenu:
   
 - title: Tutorial
   url: "tutorial"
+
+- title: 指导
+  url: "tutorial/"
   
 - title: About
   url: "about/"
@@ -29,6 +32,9 @@ footermenu:
 
 #- title: Privacy Policy
 #  url: "privacy-policy/"
+
+- title: About
+  url: "about/"
 
 - title: Contact
   url: "contact/"
