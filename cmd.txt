@@ -13,15 +13,16 @@ jekyll serve --watch
 
 
 变更历史：
-9.多语言配置
+11.多语言配置
+12.分类再分页
 
-11.
+
 10. Deploy to Vercel or Netily
   jef CDN 加速是否起作用：国内，国外，分别打开和关闭jefDrive。  Vercel Netily哪个快。  套CF 是不是国内更慢
-结论：Vercel 国内兼国外最快，绑定域名不要使用CF 的小云朵CDN加速
+  结论：Vercel 国内兼国外最快，绑定域名不要使用CF 的小云朵CDN加速
 9. 国内访问不了外网服务，都下载到服务器上本地调用：
-Request URL: https://cdn-images.mailchimp.com/embedcode/classic-10_7.css
-Request URL: https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap
+  Request URL: https://cdn-images.mailchimp.com/embedcode/classic-10_7.css
+  Request URL: https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap
 8.图片jefDrive  CDN加速
 7.字体变小： 
   .mainheading h1.posttitle {     font-size: 1.5em;
