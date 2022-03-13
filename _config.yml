@@ -23,6 +23,7 @@ sass:
   sass_dir: _sass
   style: :compressed
 ganalytics: UA-113961478-1
+environment: cn
         
 # Authors
 authors:
