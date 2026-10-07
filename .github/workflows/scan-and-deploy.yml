@@ -1,0 +1,72 @@
+name: 扫描并部署
+
+# 触发时机：
+# 1. 每天北京时间 08:00 定时扫描（UTC 00:00）
+# 2. 手动触发（Actions 页面点 Run workflow）
+# 3. 推送代码后自动重新部署（data.json 的自动提交带 [skip ci]，不会循环触发）
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write    # 提交扫描生成的 data.json
+  pages: write       # 部署 GitHub Pages
+  id-token: write    # Pages 部署鉴权
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  scan-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 扫描 GitHub 生成 data.json
+        env:
+          # Actions 自带令牌即可读取公开仓库，无需配置私人 token
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/update_data.py gtdbook
+
+      - name: 提交数据变更
+        run: |
+          git config user.name "showcase-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data.json
+          if git diff --cached --quiet; then
+            echo "数据无变化，跳过提交"
+          else
+            git commit -m "chore(data): 每日扫描更新 [skip ci]"
+            git push
+          fi
+
+      - name: 汇总站点产物
+        run: |
+          mkdir -p _site
+          cp index.html style.css app.js data.json _site/
+
+      - name: 配置 Pages
+        uses: actions/configure-pages@v5
+
+      - name: 上传站点产物
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: 部署到 GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

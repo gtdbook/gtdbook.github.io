@@ -1,0 +1,66 @@
+{
+  "owner": {
+    "login": "gtdbook",
+    "name": "gtdbook",
+    "bio": "",
+    "avatar_url": "https://avatars.githubusercontent.com/u/52135646?v=4",
+    "html_url": "https://github.com/gtdbook",
+    "followers": 0
+  },
+  "stats": {
+    "repos": 2,
+    "stars": 0,
+    "forks": 0,
+    "languages": [
+      {
+        "name": "Python",
+        "count": 1
+      }
+    ]
+  },
+  "repos": [
+    {
+      "name": "self-ops",
+      "description": "自运营情报中枢：自动抓取 → 自动处理 → 自动部署（GitHub Actions + Pages），失败自动告警、恢复自动关闭",
+      "url": "https://github.com/gtdbook/self-ops",
+      "homepage": "https://gtdbook.github.io/self-ops/",
+      "topics": [
+        "automation",
+        "dashboard",
+        "github-actions",
+        "github-pages",
+        "hacker-news",
+        "info-digest",
+        "rss",
+        "self-operating"
+      ],
+      "language": "Python",
+      "languages": [
+        {
+          "name": "Python",
+          "pct": 100.0
+        }
+      ],
+      "stars": 0,
+      "forks": 0,
+      "pushed_at": "2026-10-07T10:16:19Z",
+      "created_at": "2026-10-07T09:57:45Z",
+      "archived": false
+    },
+    {
+      "name": "gtdbook",
+      "description": "gtdbook 的自运营 GitHub 体系",
+      "url": "https://github.com/gtdbook/gtdbook",
+      "homepage": "",
+      "topics": [],
+      "language": null,
+      "languages": [],
+      "stars": 0,
+      "forks": 0,
+      "pushed_at": "2026-10-07T09:59:44Z",
+      "created_at": "2026-10-07T09:59:02Z",
+      "archived": false
+    }
+  ],
+  "generated_at": "2026-10-07T10:36:40Z"
+}
