@@ -26,7 +26,7 @@ jobs:
     timeout-minutes: 10
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment2.outputs.page_url || steps.deployment1.outputs.page_url }}
     steps:
       - name: 检出仓库
         uses: actions/checkout@v4
@@ -51,7 +51,15 @@ jobs:
             echo "数据无变化，跳过提交"
           else
             git commit -m "chore(data): 每日扫描更新 [skip ci]"
-            git push
+            # push 被拒（并发提交竞争）时 rebase 后重试
+            for i in 1 2 3; do
+              if git push; then exit 0; fi
+              echo "[retry $i] push 被拒，rebase 后重试"
+              git pull --rebase --autostash origin main
+              sleep $((i * 8))
+            done
+            echo "push 重试 3 次仍失败"
+            exit 1
           fi
 
       - name: 汇总站点产物
@@ -67,6 +75,20 @@ jobs:
         with:
           path: _site
 
+      - name: 等待 artifact 索引生效
+        run: sleep 15 # 规避 artifact API 一致性延迟导致的 "No artifacts named github-pages"
+
+      # deploy-pages 偶发 "Fetching artifact metadata failed"（GitHub API 瞬时抖动），最多重试两次
+      - id: deployment1
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+
+      - id: deployment2
+        if: steps.deployment1.outcome == 'failure'
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+
       - name: 部署到 GitHub Pages
         id: deployment
+        if: steps.deployment2.outcome == 'failure'
         uses: actions/deploy-pages@v4
